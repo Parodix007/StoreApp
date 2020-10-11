@@ -1,6 +1,11 @@
 from rest_framework import serializers
 from .models import Category, Item
 
+    
+    # Tworze obiekty ktore pomagaja w serlizacji danych z Django Rest Framework
+    # Kluczowe Importy: serializers
+    #Kazdy z obiektowy dziedziczy ModelSerializer z serializers nastepnie posiada klase Meta ktora odpowiada za wybranie odpowiednich pol ktore potem sa wysylane w api
+    
 
 class CategorySerializer(serializers.ModelSerializer):
 

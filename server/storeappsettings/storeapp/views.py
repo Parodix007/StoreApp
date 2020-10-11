@@ -1,29 +1,51 @@
 from django.shortcuts import render
-from django.views import View
-from .models import Category
-from .serializers import CategorySerializer
-from django.http import HttpResponse, HttpRequest
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
+from .models import Category, Item
+from .serializers import CategorySerializer, ItemsSerializer, ItemSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
 # Create your views here.
 
+    
+    # Za pomoca Django Rest Framework tworze odpowiednie API dla frontendu.
+    # Uzywam do tego APIViews jako ze korzystam z obietkowego podejscia do Viewsow w Django
+    # Klucze Importy: APIView, Response
+    # APIView odpowiada za tworzenie widoku api w przegladarce i utworzenie samego API dla tego widoku
+    # Response jest lepszym HttpResponse
+    # W kazdej klasie "serializuje" dane z obiektow ktore mnie interesuja
 
-class GetCategorys(View):
+class GetCategorys(APIView):
 
     def get(self, request):
         get_categorys_name = Category.objects.all()
         list_of_categorys = []
+
         for item in list(get_categorys_name):
             query_for_category = Category.objects.get(category_name=item)
             category_obj = CategorySerializer(query_for_category)
             list_of_categorys.append(category_obj.data)
         
-        json = JSONRenderer().render(list_of_categorys)
-        return HttpResponse(json)
+        return Response(list_of_categorys)
 
 
-class GetItems(View):
+
+class GetItems(APIView):
 
     def get(self, request):
-        item_category = request.GET.get('category')
-        return HttpResponse('dupa')
+        items_category = request.GET.get('category')
+        query_for_item_category = Item.objects.filter(item_category=items_category)
+        items_obj = []
+
+        for item in list(query_for_item_category):
+            obj = ItemsSerializer(item)
+            items_obj.append(obj.data)
+
+        return Response(items_obj)
+
+
+class GetItem(APIView):
+
+    def get(self, request):
+        item_id = request.GET.get('id')
+        query_for_item = Item.objects.get(id=item_id)
+        item_obj = ItemSerializer(query_for_item)
+        return Response(item_obj.data)
