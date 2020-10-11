@@ -1,0 +1,19 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "Front-end dla aplikacji StoreApp napisane za pomoca Reacta i bulmy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "REACT",
+    "DJANGO",
+    "REST"
+  ],
+  "author": "Sebastian Siarczyński",
+  "license": "ISC",
+  "dependencies": {
+    "react-router-dom": "^5.2.0"
+  }
+}

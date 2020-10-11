@@ -1,0 +1,23 @@
+.container{
+    padding:5px;
+    margin:5px;
+}
+.element{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.hero{
+    border-radius: 8px;
+    p{
+        font-size: 1.1rem;
+    }
+    h1{
+        text-align: center;
+    }
+    hr{
+        background-color:rgba(0,0,0,0.1)
+    }
+    .link{
+        color:white
+    }
+}
