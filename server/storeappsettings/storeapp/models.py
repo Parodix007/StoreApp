@@ -42,3 +42,29 @@ class Discount(models.Model):
     
     def __repr__(self):
         return f'{self.discount_value}'
+
+
+class ContactData(models.Model):
+
+    phone_number = models.CharField(max_length=50)
+    email = models.EmailField(max_length=100)
+    street = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'Contact {self.phone_number}, {self.email}, {self.street}'
+
+    def __repr__(self):
+        return f'Contact data'
+    
+
+class EmailsFromUsers(models.Model):
+
+    user_name = models.CharField(max_length=25)
+    user_email = models.EmailField(max_length=255)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.user_email
+
+    def __repr__(self):
+        return self.user_email

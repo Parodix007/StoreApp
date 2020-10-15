@@ -1,47 +1,47 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React from 'react'
 import styles from './mainpage.module.scss'
 import { Link } from 'react-router-dom'
 import { FetchCategory } from '../../Helpers/helpers'
 
-const MainPage= () => {
-    const [category, setCategory] = useState([])
-    useEffect( () => {
-        (async () => {
-            const dane = await axios.get('http://127.0.0.1:8000/')
-            setCategory(dane.data)
-        })()
-    }, [])
-    return ( 
+const MainPage= () => ( 
         <section className={`${styles.container} box`}>
             <ul>
-                {/* <fetchCategory render={value => (
-                    <li className={styles.element}>
-                        <section className={`${styles.hero} hero is-link`}>
-                            <section className='hero-body'>
-                                <div className='container'>
-                                    <h1 className='title'>
-                                        {value}
-                                        <Link 
-                                            to={`shop/?category=${item['id']}`} 
-                                            className={styles.link}
-                                        >
-                                            {item['category_name']}
-                                        </Link>
-                                    </h1>
-                                    <hr />
-                                    <p className='subtitle'>
-                                        {item['category_desc']}
-                                    </p>
-                                </div>
-                            </section>
-                        </section>
-                    </li>
-                ) } /> */}
-                <FetchCategory render={(value) => value} />
+                <FetchCategory render={categorys => (
+                    <ul>
+                        {categorys.length ? categorys.map( ( { id, category_name, category_desc } ) => (
+                            <li className={styles.element} key={id}>
+                                <section className={`${styles.hero} hero is-link`}>
+                                    <section className='hero-body'>
+                                        <div className='container'>
+                                            <h1 className='title'>
+                                                <Link 
+                                                    to={`shop?category=${id}`} 
+                                                    className={styles.link}
+                                                >
+                                                    {category_name}
+                                                </Link>
+                                            </h1>
+                                            <hr />
+                                            <p className='subtitle'>
+                                                {category_desc}
+                                            </p>
+                                        </div>
+                                    </section>
+                                </section>
+                            </li>
+                        )) : 
+                        <li className={styles.error}>
+                            <div>
+                                <p>Loading...</p>
+                            </div>
+                            <div>
+                                <button class="button is-danger is-loading">Loading</button>
+                            </div>
+                        </li>}
+                    </ul>
+                )} />
             </ul>
         </section>
-    )
-}
+)
 
 export default MainPage

@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from .models import Category, Item
-from .serializers import CategorySerializer, ItemsSerializer, ItemSerializer
+from .models import Category, Item, ContactData
+from .serializers import CategorySerializer, ItemsSerializer, ItemSerializer, ContactSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
 
     
-    # Za pomoca Django Rest Framework tworze odpowiednie API dla frontendu.
-    # Uzywam do tego APIViews jako ze korzystam z obietkowego podejscia do Viewsow w Django
-    # Klucze Importy: APIView, Response
-    # APIView odpowiada za tworzenie widoku api w przegladarce i utworzenie samego API dla tego widoku
-    # Response jest lepszym HttpResponse
-    # W kazdej klasie "serializuje" dane z obiektow ktore mnie interesuja
+    #* Za pomoca Django Rest Framework tworze odpowiednie API dla frontendu.
+    #* Uzywam do tego APIViews jako ze korzystam z obietkowego podejscia do Viewsow w Django
+    #* Klucze Importy: APIView, Response
+    #* APIView odpowiada za tworzenie widoku api w przegladarce i utworzenie samego API dla tego widoku
+    #* Response jest lepszym HttpResponse
+    #* W kazdej klasie "serializuje" dane z obiektow ktore mnie interesuja
 
 class GetCategorys(APIView):
 
@@ -49,3 +49,11 @@ class GetItem(APIView):
         query_for_item = Item.objects.get(id=item_id)
         item_obj = ItemSerializer(query_for_item)
         return Response(item_obj.data)
+
+class GetContactData(APIView):
+
+    def get(self, request):
+        contact = ContactData.objects.get(id=1)
+        query_for_data = ContactSerializer(contact)
+        print(query_for_data)
+        return Response(query_for_data.data)

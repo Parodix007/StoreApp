@@ -21,3 +21,14 @@
         color:white
     }
 }
+
+.error{
+    display: grid;
+    justify-content: center;
+    div:first-child{
+        margin:5px;
+    }
+    p{
+        font-weight: bold;
+    }
+}

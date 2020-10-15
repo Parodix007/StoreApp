@@ -4,6 +4,7 @@ import Nav from './Nav/nav';
 import AboutPage from './Views/AboutPage/AboutPage'
 import MainPage from './Views/MainPage/MainPage'
 import ShopPage from './Views/ShopPage/ShopPage'
+import ContactPage from './Views/ContactPage/contact';
 
 const App = () =>(
   <Router>
@@ -14,11 +15,15 @@ const App = () =>(
         <MainPage />
       </Route>
 
+      <Route exact path='/contact'>
+        <ContactPage />
+      </Route>
+
       <Route exact path='/about'>
         <AboutPage />
       </Route>
 
-      <Route exact path='/shop'>
+      <Route path='/shop'>
         <ShopPage />
       </Route>
     </main>
