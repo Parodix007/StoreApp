@@ -18,14 +18,14 @@ class ItemsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ('id', 'item_name', 'item_short_desc', 'is_item')
+        fields = ('id', 'item_name', 'item_short_desc', 'is_item', 'item_img_url')
 
 
 class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ('item_name', 'item_desc', 'item_category', 'is_item')
+        fields = ('item_name', 'item_desc', 'item_category', 'is_item', 'item_img_url')
 
 
 class ContactSerializer(serializers.ModelSerializer):

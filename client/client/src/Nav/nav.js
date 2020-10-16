@@ -19,7 +19,7 @@ const Nav = () => (
                                 {
                                     categorys.map( ( {id, category_name} ) => (
                                         <>
-                                            <NavLink to={`shop?category=${id}`} className='navbar-item'>{category_name}</NavLink>
+                                            <NavLink to={`shop?category=${id}`} className='navbar-item' key={id}>{category_name}</NavLink>
                                             <div className='navbar-divider'></div>
                                         </>
                                     ))
