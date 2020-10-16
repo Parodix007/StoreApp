@@ -1,5 +1,18 @@
-.form{
+.formField{
     display: flex;
-    justify-content: center;
-    width: 60%;
+    justify-items: center;
+    form{
+        width: 100%;
+        padding:10px;
+        div{
+           margin-top:10px;
+           margin-bottom: 10px; 
+        }
+        input[type=text], input[type=email]{
+            width: 40%;
+        }
+        ::placeholder{
+            color:rgba(0,0,0,0.6);
+        }
+    }
 }

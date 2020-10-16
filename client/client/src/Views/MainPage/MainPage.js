@@ -9,33 +9,36 @@ const MainPage= () => (
                 <FetchCategory render={categorys => (
                     <ul>
                         {categorys.length ? categorys.map( ( { id, category_name, category_desc } ) => (
-                            <li className={styles.element} key={id}>
-                                <section className={`${styles.hero} hero is-link`}>
-                                    <section className='hero-body'>
-                                        <div className='container'>
-                                            <h1 className='title'>
-                                                <Link 
-                                                    to={`shop?category=${id}`} 
-                                                    className={styles.link}
-                                                >
-                                                    {category_name}
-                                                </Link>
-                                            </h1>
-                                            <hr />
-                                            <p className='subtitle'>
-                                                {category_desc}
-                                            </p>
-                                        </div>
+                            <>
+                                <li className={styles.element} key={id}>
+                                    <section className={`${styles.hero} hero is-link is-bold`}>
+                                        <section className='hero-body'>
+                                            <div className='container'>
+                                                <h1 className='title'>
+                                                    <Link 
+                                                        to={`shop?category=${id}`} 
+                                                        className={styles.link}
+                                                    >
+                                                        <strong>{category_name}</strong>
+                                                    </Link>
+                                                </h1>
+                                                <hr />
+                                                <p className='subtitle'>
+                                                    {category_desc}
+                                                </p>
+                                            </div>
+                                        </section>
                                     </section>
-                                </section>
-                            </li>
+                                </li>
+                                <hr />
+                            </>
                         )) : 
                         <li className={styles.error}>
                             <div>
                                 <p>Loading...</p>
                             </div>
                             <div>
-                                <button class="button is-danger is-loading">Loading</button>
+                                <button className="button is-danger is-loading">Loading</button>
                             </div>
                         </li>}
                     </ul>

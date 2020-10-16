@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from './Nav/nav';
 import AboutPage from './Views/AboutPage/AboutPage'
 import MainPage from './Views/MainPage/MainPage'
@@ -11,21 +11,23 @@ const App = () =>(
     <Nav />
 
     <main>
-      <Route exact path='/'>
-        <MainPage />
-      </Route>
+      <Switch>
+        <Route exact path='/'>
+          <MainPage />
+        </Route>
 
-      <Route exact path='/contact'>
-        <ContactPage />
-      </Route>
+        <Route exact path='/contact'>
+          <ContactPage />
+        </Route>
 
-      <Route exact path='/about'>
-        <AboutPage />
-      </Route>
+        <Route exact path='/about'>
+          <AboutPage />
+        </Route>
 
-      <Route path='/shop'>
-        <ShopPage />
-      </Route>
+        <Route path='/shop'>
+          <ShopPage />
+        </Route>
+      </Switch>
     </main>
 
   </Router>

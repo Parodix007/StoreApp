@@ -55,5 +55,4 @@ class GetContactData(APIView):
     def get(self, request):
         contact = ContactData.objects.get(id=1)
         query_for_data = ContactSerializer(contact)
-        print(query_for_data)
         return Response(query_for_data.data)
