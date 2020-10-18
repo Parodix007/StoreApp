@@ -1,0 +1,29 @@
+$fontSize: 0.9rem;
+
+.item{
+    display: flex;
+    justify-content: left;
+    padding:10px;
+    margin:10px;
+    div:first-child{
+        padding:10px;
+        margin:15px;
+        border-right: 1px solid rgba(0, 0, 0, 0.3);
+    }
+    p{
+        font-size: 1.1rem;
+        font-weight: normal;
+        span{
+            font-weight: bold;
+        }
+    }
+}
+
+.stock{
+    font-size: $fontSize;
+    color:green;
+}
+.notStock{
+    font-size: $fontSize;
+    color:red;
+}

@@ -1,6 +1,9 @@
 .formField{
     display: flex;
     justify-items: center;
+    section{
+        border-radius: 6px;
+    }
     form{
         width: 100%;
         padding:10px;

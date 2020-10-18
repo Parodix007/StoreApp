@@ -19,7 +19,13 @@ const Nav = () => (
                                 {
                                     categorys.map( ( {id, category_name} ) => (
                                         <>
-                                            <NavLink to={`shop?category=${id}`} className='navbar-item' key={id}>{category_name}</NavLink>
+                                            <a 
+                                                href={`http://localhost:3000/shop?category=${id}`} 
+                                                className='navbar-item' 
+                                                key={id} 
+                                            >
+                                                {category_name} 
+                                            </a>
                                             <div className='navbar-divider'></div>
                                         </>
                                     ))

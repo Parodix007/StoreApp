@@ -25,7 +25,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ('item_name', 'item_desc', 'item_category', 'is_item', 'item_img_url')
+        fields = ('item_name', 'item_price', 'item_desc', 'item_category', 'is_item', 'item_img_url')
 
 
 class ContactSerializer(serializers.ModelSerializer):

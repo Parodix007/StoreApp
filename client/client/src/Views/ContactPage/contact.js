@@ -14,6 +14,17 @@ const ContactPage = () => {
         <>
             <section className='box'>
                 <article className={styles.formField}>
+                    <section className="hero is-success">
+                        <div className="hero-body">
+                            <div className="container">
+                                <h1 className="title">
+                                    <strong>
+                                        Contact form
+                                    </strong>
+                                </h1>
+                            </div>
+                        </div>
+                    </section>
                     <form method='POST' action='/contactForm'>
                         <div>
                             <div className='field'>
