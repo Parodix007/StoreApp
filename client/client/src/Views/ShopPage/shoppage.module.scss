@@ -18,7 +18,6 @@ $fontSize: 0.9rem;
         }
     }
 }
-
 .stock{
     font-size: $fontSize;
     color:green;
@@ -26,4 +25,14 @@ $fontSize: 0.9rem;
 .notStock{
     font-size: $fontSize;
     color:red;
+}
+.error{
+    display: grid;
+    justify-content: center;
+    div:first-child{
+        margin:5px;
+    }
+    p{
+        font-weight: bold;
+    }
 }

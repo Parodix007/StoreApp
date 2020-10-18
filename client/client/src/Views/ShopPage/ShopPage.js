@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import styles from './shoppage.module.scss'
+import { Error } from "../../Helpers/helpers";
 
 const ShopPage = () => {
     const [items, setItems] = useState([])
@@ -11,7 +12,7 @@ const ShopPage = () => {
                 const dane = await axios.post(`http://127.0.0.1:8000/shop/${window.location.search}`)
                 setItems(dane.data)
             }catch(error){
-                setItems('Nettwor error')
+                console.log(error)
             }
         })()
     },[])
@@ -19,13 +20,14 @@ const ShopPage = () => {
         <>
                 <section className='tile is-ancestor'>
                     <div className='tile is-parent is-vertical'>
+                        {console.log(items)}
                         {
                             items.length ? items.map(({id, item_name, item_short_desc, item_img_url, is_item}) =>(
                                 <section className='title is-child' data-id={id}>
                                     <div className='box'>
                                         <div className={styles.item}>
                                             <div>
-                                                <figure class="image is-128x128">
+                                                <figure className="image is-128x128">
                                                     <img src={item_img_url} alt='item_image' />
                                                 </figure>
                                             </div>
@@ -44,9 +46,8 @@ const ShopPage = () => {
                                 </section>
                             )): 
                             <section className='tile is-child'>
-                                <div className='box is-warning'>
-                                    {items}
-                                    <button className="button is-danger is-loading">Loading</button>
+                                <div className={styles.error}>
+                                    <Error />
                                 </div>
                             </section>
                         }

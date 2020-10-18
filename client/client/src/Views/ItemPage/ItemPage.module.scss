@@ -1,0 +1,21 @@
+.itemInfo{
+    display: flex;
+    justify-content: center;
+    div{
+        margin:10px;
+        padding:10px;
+    }
+    p{
+        font-size: 1.4rem;
+    }
+}
+.error{
+    display: grid;
+    justify-content: center;
+    div:first-child{
+        margin:5px;
+    }
+    p{
+        font-weight: bold;
+    }
+}

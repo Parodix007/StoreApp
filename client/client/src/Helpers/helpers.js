@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
 export const FetchCategory = props => {
@@ -18,3 +18,14 @@ export const FetchCategory = props => {
     
     return props.render(category)
 }
+
+export const Error = () => (
+    <>
+        <div>
+            <p>Loading...</p>
+        </div>
+        <div>
+            <button className="button is-danger is-loading">Loading</button>
+        </div>
+    </>
+)

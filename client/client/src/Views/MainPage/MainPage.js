@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './mainpage.module.scss'
 import { Link } from 'react-router-dom'
-import { FetchCategory } from '../../Helpers/helpers'
+import { FetchCategory, Error } from '../../Helpers/helpers'
 
 const MainPage= () => ( 
         <section className={`${styles.container} box`}>
@@ -34,12 +34,7 @@ const MainPage= () => (
                             </>
                         )) : 
                         <li className={styles.error}>
-                            <div>
-                                <p>Loading...</p>
-                            </div>
-                            <div>
-                                <button className="button is-danger is-loading">Loading</button>
-                            </div>
+                            <Error />
                         </li>}
                     </ul>
                 )} />

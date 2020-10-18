@@ -5,6 +5,7 @@ import AboutPage from './Views/AboutPage/AboutPage'
 import MainPage from './Views/MainPage/MainPage'
 import ShopPage from './Views/ShopPage/ShopPage'
 import ContactPage from './Views/ContactPage/contact';
+import ItemPage from './Views/ItemPage/ItemPage';
 
 const App = () =>(
   <Router>
@@ -26,6 +27,10 @@ const App = () =>(
 
         <Route path='/shop'>
           <ShopPage />
+        </Route>
+
+        <Route path='/item'>
+          <ItemPage />
         </Route>
       </Switch>
     </main>

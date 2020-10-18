@@ -31,7 +31,7 @@ class GetCategorys(APIView):
 class GetItems(APIView):
 
     def post(self, request):
-        items_category = request.GET.get('category')
+        items_category = request.query_params.get('category')
         query_for_item_category = Item.objects.filter(item_category=items_category)
         items_obj = []
 
@@ -44,7 +44,7 @@ class GetItems(APIView):
 
 class GetItem(APIView):
 
-    def get(self, request):
+    def post(self, request):
         item_id = request.GET.get('id')
         query_for_item = Item.objects.get(id=item_id)
         item_obj = ItemSerializer(query_for_item)
