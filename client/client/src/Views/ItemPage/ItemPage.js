@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Error } from "../../Helpers/helpers";
 import styles from "./ItemPage.module.scss";
+
 const ItemPage = () => {
     const [item, setItem] = useState([])
 
@@ -27,10 +28,22 @@ const ItemPage = () => {
                                     <img src={item_img_url} alt='item_img' />
                                 </div>
                                 <div className='content'>
-                                    <p><strong>Item:</strong> {item_name}</p>
-                                    <p><strong>Item price:</strong> {item_price}$</p>
-                                    <p><strong>Availability:</strong> {is_item}</p>
-                                    <button className='button is-success'><strong>Add to cart</strong></button>
+                                    <p><strong>Product:</strong> {item_name}</p>
+                                    <p><strong>Product price:</strong> {item_price}$</p>
+                                    <div>
+                                    {
+                                        is_item ? 
+                                            <div>
+                                                <p><strong>Availibity: </strong><span className={styles.isItem}>Available to order</span></p>
+                                                <button className='button is-success is-rounded'>Order</button>
+                                            </div> 
+                                        : 
+                                            <div>
+                                                <p><strong>Availibity: </strong><span className={styles.notItem}>Not available to order</span></p>
+                                                <button className='button is-danger is-rounded'>Notife about availibity</button>
+                                            </div>
+                                    }
+                                    </div>
                                 </div>
                             </div>
                             <hr />

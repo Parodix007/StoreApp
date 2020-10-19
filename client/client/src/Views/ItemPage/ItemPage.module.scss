@@ -1,12 +1,18 @@
 .itemInfo{
     display: flex;
     justify-content: center;
-    div{
+    p{
+        font-size: 1.4rem;
+    }
+    img{
         margin:10px;
         padding:10px;
     }
-    p{
-        font-size: 1.4rem;
+    .isItem{
+        color: green;
+    }
+    .notItem{
+        color: red;
     }
 }
 .error{
