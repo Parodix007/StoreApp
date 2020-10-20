@@ -21,7 +21,7 @@ const ItemPage = () => {
         <>
             <section className='box'>
                 {
-                    item.length ? item.map(({item_name, item_price, item_desc, is_item, item_img_url}) => (
+                    item.length ? item.map( ({item_name, item_price, item_desc, is_item, item_img_url}) => (
                         <>
                             <div className={styles.itemInfo}>
                                 <div>

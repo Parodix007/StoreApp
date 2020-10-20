@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from './Nav/nav';
+
 import AboutPage from './Views/AboutPage/AboutPage'
 import MainPage from './Views/MainPage/MainPage'
 import ShopPage from './Views/ShopPage/ShopPage'
@@ -25,11 +26,11 @@ const App = () =>(
           <AboutPage />
         </Route>
 
-        <Route path='/shop'>
+        <Route exact path='/shop'>
           <ShopPage />
         </Route>
 
-        <Route path='/item'>
+        <Route exact path='/item'>
           <ItemPage />
         </Route>
       </Switch>

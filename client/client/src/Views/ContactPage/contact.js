@@ -59,21 +59,22 @@ const ContactPage = () => {
                 <article>
                     <section className="hero">
                         <div className="hero-body">
-                            {contact.map( ( {phone_number, email, street} ) => (
-                                <div className='container'>
-                                    <div className='tile is-ancestor'>
-                                        <div className='tile notification is-warning'>
-                                            <div>
-                                                <h1 className='title'>Contact us</h1>
-                                                <h2 className='subtitle'>
-                                                    <p><strong>Phone number:</strong> {phone_number}</p>
-                                                    <p><strong>Email adress:</strong> {email}</p>
-                                                    <p><strong>Street:</strong> {street}</p>
-                                                </h2>
+                            {
+                                contact.map( ( {phone_number, email, street} ) => (
+                                    <div className='container'>
+                                        <div className='tile is-ancestor'>
+                                            <div className='tile notification is-warning'>
+                                                <div>
+                                                    <h1 className='title'>Contact us</h1>
+                                                    <h2 className='subtitle'>
+                                                        <p><strong>Phone number:</strong> {phone_number}</p>
+                                                        <p><strong>Email adress:</strong> {email}</p>
+                                                        <p><strong>Street:</strong> {street}</p>
+                                                    </h2>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             ))}
                         </div>
                     </section>
